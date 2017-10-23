@@ -1,0 +1,11 @@
+[package]
+
+name = "hello_cargo"
+version = "0.1.0"
+authors = ["jub <mail@benn.in>"]
+
+[dependencies]
+
+rand = "0.3.14"
+clap = "2.26.2"
+rustyline = "1.0.0"

@@ -1,8 +1,8 @@
 [package]
 
-name = "hello_cargo"
+name = "turack"
 version = "0.1.0"
-authors = ["jub <mail@benn.in>"]
+authors = ["Jonas <mail@benn.in>"]
 
 [dependencies]
 

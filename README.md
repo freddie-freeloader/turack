@@ -1,4 +1,4 @@
-This version is currently not working. :cry:
+THIS IS NOT MANTAINED AT THE MOMENT.
 
 ## Compiling
 

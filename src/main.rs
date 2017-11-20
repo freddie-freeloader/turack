@@ -26,6 +26,8 @@ impl StripMargin for &'static str {
 }
 
 static SAVE_FILE: &'static str = "turack_progress.txt";
+static COMMENT_FILE: &'static str = "comments.md";
+static EDITOR: &'static str = "emacsclient -c";
 
 fn main() {
 
@@ -146,9 +148,14 @@ fn main() {
             .spawn()
             .expect("Could not start DrRacket!");
         Command::new("drracket")
-            .arg(format!("{}/grade-prefilled.rktd", s))
+            .arg(format!("{}/grade.rktd", s))
             .spawn()
             .expect("Could not start DrRacket!");
+        Command::new("emacsclient")
+            .arg("-c")
+            .arg(format!("{}/{}", s, COMMENT_FILE))
+            .spawn()
+            .expect("Your editor for writing comments");
         s
     }
 
@@ -217,7 +224,7 @@ fn main() {
                 rl.add_history_entry(&line);
                 match load(&dir) {
                     Ok((tmp_done, tmp_undone)) => {
-                        if !(tmp_done.is_empty())  {
+                        if !(tmp_done.is_empty()) {
                             done = tmp_done;
                             undone = tmp_undone;
                             undone = shuffle(undone);
